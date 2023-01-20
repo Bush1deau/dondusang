@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using DonDuSang.View;
+using DonDuSang.Services;
 
 namespace DonDuSang;
 
@@ -20,7 +21,9 @@ public static class MauiProgram
 #endif
 
 		builder.Services.AddSingleton<MainPage>();
+        builder.Services.AddSingleton<CentreDeDonService>();
+        builder.Services.AddSingleton<CentresDeDonViewModel>();
 
-		return builder.Build();
+        return builder.Build();
 	}
 }

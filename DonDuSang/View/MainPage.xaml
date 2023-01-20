@@ -1,7 +1,46 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="DonDuSang.View.MainPage">
+             xmlns:model="clr-namespace:DonDuSang.Model"
+             xmlns:vm="clr-namespace:DonDuSang.ViewModel"
+             x:DataType="vm:CentresDeDonViewModel"
+             x:Class="DonDuSang.View.MainPage"
+             Title="{Binding Titre}">
+    <Grid
+        RowDefinitions="*, auto"
+        ColumnDefinitions="*,*">
 
-
+        <CollectionView
+            ItemsSource="{Binding Centres}">
+            <CollectionView.ItemTemplate>
+            <DataTemplate x:DataType="model:CentreDeDon">
+                <HorizontalStackLayout Padding="10" Spacing="15">
+                    <Image Source="don_sang.jpg" HeightRequest="100"/>
+                    <VerticalStackLayout>
+                        <Label Text="{Binding location_name}" FontSize="20"/>
+                        <Label Text="{Binding location_city}" FontSize="14"/>
+                        <Label Text="{Binding collection_date}" FontSize="14"/>
+                    </VerticalStackLayout>
+                </HorizontalStackLayout>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Button Text="Récupérer les centres"
+                Grid.Row="1"
+                Grid.Column="0"
+                Margin="8"
+                TextColor="White"
+                CornerRadius="15"
+                BackgroundColor="Green"
+                Command="{Binding GetCentresDeDonCommand}"/>
+        <ActivityIndicator IsVisible="{Binding EstOccupé}"
+                           IsRunning="{Binding EstOccupé}"
+                           Grid.RowSpan="2"
+                           Grid.ColumnSpan="2"
+                           HeightRequest="80"
+                           WidthRequest="80"
+                           Color="{StaticResource Primary}"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"/>
+    </Grid>
 </ContentPage>
