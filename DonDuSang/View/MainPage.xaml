@@ -14,15 +14,20 @@
             ItemsSource="{Binding Centres}">
             <CollectionView.ItemTemplate>
             <DataTemplate x:DataType="model:CentreDeDon">
-                <HorizontalStackLayout Padding="10" Spacing="15">
-                    <Image Source="don_sang.jpg" HeightRequest="100"/>
-                    <VerticalStackLayout>
-                        <Label Text="{Binding location_name}" FontSize="20"/>
-                        <Label Text="{Binding location_city}" FontSize="14"/>
-                        <Label Text="{Binding collection_date}" FontSize="14"/>
-                    </VerticalStackLayout>
-                </HorizontalStackLayout>
-            </DataTemplate>
+                    <HorizontalStackLayout Padding="10" Spacing="15">
+                        <HorizontalStackLayout.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type vm:CentresDeDonViewModel}},  
+                                Path=GoToDetailsCommand}"/>
+                        </HorizontalStackLayout.GestureRecognizers>
+                        <Image Source="don_sang.jpg" HeightRequest="100"/>
+                        <VerticalStackLayout>
+                            <Label Text="{Binding location_name}" FontSize="20"/>
+                            <Label Text="{Binding location_city}" FontSize="14"/>
+                            <Label Text="{Binding collection_date}" FontSize="14"/>
+                        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+                </DataTemplate>
         </CollectionView.ItemTemplate>
         </CollectionView>
         <Button Text="Récupérer les centres"

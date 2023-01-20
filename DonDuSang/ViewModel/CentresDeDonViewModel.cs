@@ -1,4 +1,5 @@
 ﻿using DonDuSang.Services;
+using System.Collections.Generic;
 
 namespace DonDuSang.ViewModel;
 
@@ -28,5 +29,17 @@ public partial class CentresDeDonViewModel : BaseViewModel
 			Centres.Add(centre);
 		}
 		EstOccupé= false;
+	}
+
+	[RelayCommand]
+	async Task GoToDetails(CentreDeDon centreDeDon)
+	{
+		await Shell.Current.GoToAsync(
+			"DetailsPage", 
+			true,
+			new Dictionary<string, object>
+			{
+			{ "CentreDeDon", centreDeDon}
+				});
 	}
 }

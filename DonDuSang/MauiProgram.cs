@@ -23,6 +23,8 @@ public static class MauiProgram
 		builder.Services.AddSingleton<MainPage>();
         builder.Services.AddSingleton<CentreDeDonService>();
         builder.Services.AddSingleton<CentresDeDonViewModel>();
+        builder.Services.AddTransient<CentreDeDonDetailsViewModel>();
+        builder.Services.AddTransient<DetailsPage>();
 
         return builder.Build();
 	}
