@@ -46,8 +46,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
+	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
+	  <PackageReference Include="CopilotDev.NET.Api" Version="1.1.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Language.Intellisense" Version="17.4.255" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
 	</ItemGroup>
   <ItemGroup Condition="$(TargetFramework.Contains('-windows'))">

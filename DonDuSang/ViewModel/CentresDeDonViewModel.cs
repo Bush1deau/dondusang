@@ -32,7 +32,7 @@ public partial class CentresDeDonViewModel : BaseViewModel
 	}
 
 	[RelayCommand]
-	async Task GoToDetails(CentreDeDon centreDeDon)
+		async Task GoToDetails(CentreDeDon centreDeDon)
 	{
 		await Shell.Current.GoToAsync(
 			"DetailsPage", 
@@ -40,6 +40,6 @@ public partial class CentresDeDonViewModel : BaseViewModel
 			new Dictionary<string, object>
 			{
 			{ "CentreDeDon", centreDeDon}
-				});
+			});
 	}
 }
